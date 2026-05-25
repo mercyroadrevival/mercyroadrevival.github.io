@@ -1,1 +1,1034 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERCY ROAD REVIVAL • Grace Like Thunder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500&amp;family=Playfair+Display:wght@400&amp;display=swap');
+        
+        :root {
+            --gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: -0.025em;
+        }
+
+        .cinematic-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85));
+        }
+
+        .gold-text {
+            color: #d4af37;
+        }
+
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+        }
+
+        .nav-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #d4af37;
+            transform: translateY(-1px);
+        }
+
+        .album-art {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4),
+                        0 0 0 1px rgba(212, 175, 55, 0.1);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .album-art:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 35px 60px -15px rgb(0 0 0 / 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3);
+        }
+
+        .track-row {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .track-row:hover {
+            background-color: rgba(234, 179, 8, 0.08);
+            transform: translateX(8px);
+        }
+
+        .light-ray {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 10%,
+                rgba(212, 175, 55, 0.6) 30%,
+                rgba(212, 175, 55, 0.3) 70%,
+                transparent 90%
+            );
+            animation: ray-pulse 4s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        @keyframes ray-pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .modal {
+            animation: modal-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .equalizer-bar {
+            animation: equalizer 1.2s ease-in-out infinite;
+            transform-origin: bottom;
+        }
+
+        .equalizer-bar:nth-child(2) { animation-delay: 0.15s; height: 55%; }
+        .equalizer-bar:nth-child(3) { animation-delay: 0.3s; height: 75%; }
+        .equalizer-bar:nth-child(4) { animation-delay: 0.45s; height: 40%; }
+        .equalizer-bar:nth-child(5) { animation-delay: 0.2s; height: 90%; }
+        .equalizer-bar:nth-child(6) { animation-delay: 0.6s; height: 60%; }
+
+        @keyframes equalizer {
+            0%, 100% { transform: scaleY(0.3); }
+            50% { transform: scaleY(1); }
+        }
+
+        .storm-bg {
+            background-image: 
+                radial-gradient(circle at 25% 30%, rgba(234, 179, 8, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 70%, rgba(234, 179, 8, 0.06) 0%, transparent 50%);
+        }
+
+        .journey-card {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .journey-card:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        .nav-active {
+            color: #d4af37;
+            position: relative;
+        }
+        
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #d4af37;
+        }
+
+        .cinematic-text {
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .gold-glow {
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-x-2.5">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center">
+                            <i class="fa-solid fa-road text-zinc-950 text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-2xl tracking-tighter heading-serif">MERCY ROAD</span>
+                            <span class="font-light text-xl text-amber-400 tracking-[3px]">REVIVAL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#about" class="nav-link px-3 py-1.5 text-zinc-300 hover:text-white">The Story</a>
+                    <a href="#album" class="nav-link px-3 py-1.5 text-zinc-300 hover:text-white">The Album</a>
+                    <a href="#journey" class="nav-link px-3 py-1.5 text-zinc-300 hover:text-white">The Journey</a>
+                    <a href="#contact" class="nav-link px-3 py-1.5 text-zinc-300 hover:text-white">Connect</a>
+                </div>
+                
+                <div class="flex items-center gap-x-3">
+                    <!-- Stream Button -->
+                    <a href="#album" 
+                       class="hidden sm:flex items-center gap-x-2 px-5 py-2.5 rounded-full bg-white text-zinc-950 text-sm font-semibold hover:bg-amber-400 transition-colors">
+                        <i class="fa-solid fa-play mr-1.5"></i>
+                        <span>STREAM NOW</span>
+                    </a>
+                    
+                    <!-- Mobile Menu -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-white">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="relative h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center" 
+             style="background-image: url('image5.png');">
+            <div class="absolute inset-0 cinematic-bg"></div>
+            
+            <!-- Dramatic light rays -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="light-ray" style="left: 38%; animation-delay: 0s; width: 2px; opacity: 0.7;"></div>
+                <div class="light-ray" style="left: 45%; animation-delay: 1.2s; width: 4px; opacity: 0.5;"></div>
+                <div class="light-ray" style="left: 52%; animation-delay: 2.4s; width: 2.5px; opacity: 0.6;"></div>
+                <div class="light-ray" style="left: 61%; animation-delay: 0.8s; width: 3px; opacity: 0.4;"></div>
+            </div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <!-- Release Badge -->
+            <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-zinc-900/70 border border-amber-500/30 mb-6">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span class="text-xs font-semibold tracking-[2px] text-emerald-400">RELEASED TODAY • MAY 25, 2026</span>
+            </div>
+            
+            <h1 class="text-[92px] md:text-[120px] leading-[0.92] font-black tracking-tighter heading-serif mb-2 cinematic-text">
+                GRACE LIKE<br>THUNDER
+            </h1>
+            
+            <p class="max-w-md mx-auto text-xl text-zinc-300 mb-10">The debut album from <span class="font-semibold text-amber-400">Mercy Road Revival</span></p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="document.getElementById('album').scrollIntoView({ behavior: 'smooth' })" 
+                        class="group px-10 py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 font-bold text-lg flex items-center justify-center gap-x-3 hover:brightness-105 transition-all active:scale-[0.985]">
+                    <span>LISTEN TO THE ALBUM</span>
+                    <i class="fa-solid fa-arrow-right group-active:translate-x-1 transition"></i>
+                </button>
+                
+                <button onclick="watchTrailer()" 
+                        class="px-8 py-4 rounded-2xl border border-white/40 hover:bg-white/10 text-white font-semibold flex items-center gap-x-2 transition-all">
+                    <i class="fa-solid fa-play fa-fw"></i>
+                    <span>WATCH THE TRAILER</span>
+                </button>
+            </div>
+            
+            <div class="mt-12 flex justify-center">
+                <div class="flex items-center gap-x-4 text-xs uppercase tracking-[3px] text-zinc-500">
+                    <div>6 TRACKS</div>
+                    <div class="w-px h-3 bg-zinc-700"></div>
+                    <div>42 MINUTES</div>
+                    <div class="w-px h-3 bg-zinc-700"></div>
+                    <div>CINEMATIC GOSPEL</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll prompt -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-xs tracking-widest text-zinc-500">
+            <span>SCROLL TO BEGIN THE JOURNEY</span>
+            <i class="fa-solid fa-chevron-down mt-1 animate-bounce"></i>
+        </div>
+    </header>
+
+    <!-- ABOUT THE BAND -->
+    <section id="about" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 border-b border-zinc-800">
+        <div class="grid md:grid-cols-12 gap-x-8 items-center">
+            <div class="md:col-span-5 mb-12 md:mb-0">
+                <div class="sticky top-24">
+                    <div class="uppercase text-amber-400 text-sm tracking-[3px] mb-3">CHAPTER I</div>
+                    <h2 class="text-6xl leading-none tracking-tighter heading-serif mb-6">The Man on<br>Mercy Road</h2>
+                    
+                    <div class="prose prose-zinc text-lg max-w-md">
+                        <p class="text-zinc-300">A cinematic Christian country-gospel project built around stories of redemption, failure, grace, and finding your way home again.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7">
+                <div class="text-[17px] leading-relaxed text-zinc-300 max-w-3xl space-y-6">
+                    <p>Blending southern gospel choirs, country soul, storm-soaked Americana, and emotionally raw storytelling, the music follows <span class="font-semibold text-white">"The Man on Mercy Road"</span> — a recurring character carrying guilt, loss, and hope through rain-soaked highways, tiny white chapels, river baptisms, and sunrise revival moments.</p>
+                    
+                    <p>Inspired by classic gospel testimony songs, southern church music, and modern cinematic country production, Mercy Road Revival creates music for the broken, the wandering, the back-row saints, and anyone who’s ever felt too far gone.</p>
+                    
+                    <div class="pt-4 border-t border-zinc-800 flex items-center gap-x-4 text-sm">
+                        <div class="px-4 py-2 bg-zinc-900 rounded-xl flex items-center gap-x-2">
+                            <i class="fa-solid fa-cloud-showers-heavy text-amber-400"></i>
+                            <span>Storms. Mercy. Redemption.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALBUM SECTION -->
+    <section id="album" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-20 bg-zinc-900">
+        <div class="max-w-5xl mx-auto">
+            <!-- Album Header -->
+            <div class="flex flex-col lg:flex-row gap-12 items-start">
+                <!-- Album Art -->
+                <div class="lg:w-5/12 flex-shrink-0">
+                    <div class="relative group">
+                        <img src="image1.png" alt="Grace Like Thunder Album Cover" 
+                             class="album-art w-full rounded-3xl shadow-2xl border border-zinc-700">
+                        
+                        <div class="absolute -bottom-4 -right-4 bg-zinc-950 border border-amber-400/30 px-5 py-2.5 rounded-2xl text-xs font-mono tracking-widest flex items-center gap-x-2">
+                            <i class="fa-solid fa-calendar text-amber-400"></i>
+                            <span>25.05.2026</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-7/12 pt-4">
+                    <div class="uppercase tracking-[3px] text-xs text-amber-400 mb-2">DEBUT ALBUM</div>
+                    <h2 class="text-7xl leading-none tracking-tighter heading-serif mb-4">Grace Like Thunder</h2>
+                    
+                    <div class="max-w-lg text-lg text-zinc-300 mb-8">
+                        A cinematic journey from darkness to redemption — from midnight storms to peace in the morning light.
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        <div class="px-5 py-1.5 text-xs rounded-full border border-zinc-700 flex items-center gap-x-2">
+                            <i class="fa-solid fa-headphones text-amber-400"></i>
+                            <span>6 SONGS • 42 MIN</span>
+                        </div>
+                        <div class="px-5 py-1.5 text-xs rounded-full border border-zinc-700 flex items-center gap-x-2">
+                            <i class="fa-solid fa-globe text-amber-400"></i>
+                            <span>CHRISTIAN COUNTRY GOSPEL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-x-4">
+                        <button onclick="playAlbum()" 
+                                class="flex-1 sm:flex-none px-9 py-4 bg-white hover:bg-amber-400 active:bg-white transition-all text-zinc-950 font-bold rounded-2xl flex items-center justify-center gap-x-3 text-sm tracking-wider">
+                            <i class="fa-solid fa-play"></i>
+                            <span>PLAY FULL ALBUM</span>
+                        </button>
+                        
+                        <button onclick="showMerchModal()" 
+                                class="flex-1 sm:flex-none px-6 py-4 border border-white/30 hover:bg-white/5 text-sm font-medium rounded-2xl flex items-center justify-center gap-x-2 transition-all">
+                            <i class="fa-solid fa-shopping-bag"></i>
+                            <span>PRE-ORDER VINYL</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tracklist -->
+            <div class="mt-16">
+                <div class="flex items-end justify-between mb-6 px-1">
+                    <div>
+                        <span class="uppercase text-xs tracking-[2.5px] text-zinc-500">THE JOURNEY IN SONG</span>
+                        <h3 class="text-3xl heading-serif tracking-tight">Tracklist</h3>
+                    </div>
+                    <div class="hidden md:block text-xs text-zinc-500">Click any track to play</div>
+                </div>
+                
+                <div class="space-y-px bg-zinc-950 rounded-3xl overflow-hidden border border-zinc-800">
+                    <!-- Track 1 -->
+                    <div onclick="playTrack(1, 'I Heard Him In The Thunder')" class="track-row group flex items-center px-7 py-5 hover:bg-zinc-900 cursor-pointer border-b border-zinc-800">
+                        <div class="w-8 text-center font-mono text-xs text-amber-400/70 group-hover:text-amber-400 transition-colors">01</div>
+                        <div class="flex-1 ml-6">
+                            <div class="font-semibold">I Heard Him In The Thunder</div>
+                            <div class="text-xs text-zinc-500">The storm that started it all</div>
+                        </div>
+                        <div class="text-xs text-zinc-500 tabular-nums">6:12</div>
+                        <div class="ml-6 w-8 text-right"><i class="fa-solid fa-play text-amber-400 opacity-0 group-hover:opacity-100 transition-all"></i></div>
+                    </div>
+                    
+                    <!-- Track 2 -->
+                    <div onclick="playTrack(2, 'Grace Like Thunder')" class="track-row group flex items-center px-7 py-5 hover:bg-zinc-900 cursor-pointer border-b border-zinc-800">
+                        <div class="w-8 text-center font-mono text-xs text-amber-400/70 group-hover:text-amber-400 transition-colors">02</div>
+                        <div class="flex-1 ml-6">
+                            <div class="font-semibold flex items-center gap-x-2">Grace Like Thunder <span class="text-[10px] px-1.5 py-px bg-amber-400 text-black font-bold rounded">TITLE TRACK</span></div>
+                            <div class="text-xs text-zinc-500">The moment everything changed</div>
+                        </div>
+                        <div class="text-xs text-zinc-500 tabular-nums">5:47</div>
+                        <div class="ml-6 w-8 text-right"><i class="fa-solid fa-play text-amber-400 opacity-0 group-hover:opacity-100 transition-all"></i></div>
+                    </div>
+                    
+                    <!-- Track 3 -->
+                    <div onclick="playTrack(3, 'Mama Prayed Anyway')" class="track-row group flex items-center px-7 py-5 hover:bg-zinc-900 cursor-pointer border-b border-zinc-800">
+                        <div class="w-8 text-center font-mono text-xs text-amber-400/70 group-hover:text-amber-400 transition-colors">03</div>
+                        <div class="flex-1 ml-6">
+                            <div class="font-semibold">Mama Prayed Anyway</div>
+                            <div class="text-xs text-zinc-500">The prayer that never stopped</div>
+                        </div>
+                        <div class="text-xs text-zinc-500 tabular-nums">4:59</div>
+                        <div class="ml-6 w-8 text-right"><i class="fa-solid fa-play text-amber-400 opacity-0 group-hover:opacity-100 transition-all"></i></div>
+                    </div>
+                    
+                    <!-- Track 4 -->
+                    <div onclick="playTrack(4, 'Devil At The Door')" class="track-row group flex items-center px-7 py-5 hover:bg-zinc-900 cursor-pointer border-b border-zinc-800">
+                        <div class="w-8 text-center font-mono text-xs text-amber-400/70 group-hover:text-amber-400 transition-colors">04</div>
+                        <div class="flex-1 ml-6">
+                            <div class="font-semibold">Devil At The Door</div>
+                            <div class="text-xs text-zinc-500">When temptation came knocking</div>
+                        </div>
+                        <div class="text-xs text-zinc-500 tabular-nums">5:21</div>
+                        <div class="ml-6 w-8 text-right"><i class="fa-solid fa-play text-amber-400 opacity-0 group-hover:opacity-100 transition-all"></i></div>
+                    </div>
+                    
+                    <!-- Track 5 -->
+                    <div onclick="playTrack(5, 'Wash Me In The River')" class="track-row group flex items-center px-7 py-5 hover:bg-zinc-900 cursor-pointer border-b border-zinc-800">
+                        <div class="w-8 text-center font-mono text-xs text-amber-400/70 group-hover:text-amber-400 transition-colors">05</div>
+                        <div class="flex-1 ml-6">
+                            <div class="font-semibold">Wash Me In The River</div>
+                            <div class="text-xs text-zinc-500">The baptism that washed it clean</div>
+                        </div>
+                        <div class="text-xs text-zinc-500 tabular-nums">6:03</div>
+                        <div class="ml-6 w-8 text-right"><i class="fa-solid fa-play text-amber-400 opacity-0 group-hover:opacity-100 transition-all"></i></div>
+                    </div>
+                    
+                    <!-- Track 6 -->
+                    <div onclick="playTrack(6, 'Home In His Hands')" class="track-row group flex items-center px-7 py-5 hover:bg-zinc-900 cursor-pointer">
+                        <div class="w-8 text-center font-mono text-xs text-amber-400/70 group-hover:text-amber-400 transition-colors">06</div>
+                        <div class="flex-1 ml-6">
+                            <div class="font-semibold">Home In His Hands</div>
+                            <div class="text-xs text-zinc-500">Finally... the long road home</div>
+                        </div>
+                        <div class="text-xs text-zinc-500 tabular-nums">7:14</div>
+                        <div class="ml-6 w-8 text-right"><i class="fa-solid fa-play text-amber-400 opacity-0 group-hover:opacity-100 transition-all"></i></div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-center text-xs text-zinc-500">This is not just an album about faith — it is an album about being human.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE JOURNEY VISUAL SECTION -->
+    <section id="journey" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24">
+        <div class="text-center mb-14">
+            <div class="uppercase tracking-[3px] text-amber-400 text-sm">THE STORY IN PICTURES</div>
+            <h2 class="text-6xl heading-serif tracking-tight mt-1">The Long Road Home</h2>
+            <p class="max-w-md mx-auto mt-3 text-zinc-400">Follow the Man on Mercy Road through five defining moments.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+            <!-- Journey Step 1 -->
+            <div class="journey-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 group">
+                <div class="relative h-80">
+                    <img src="image5.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="The Storm">
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <div class="text-amber-400 text-xs tracking-widest">01 • THE STORM</div>
+                        <div class="text-white text-xl font-semibold">Rain-soaked highways</div>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 pt-3 text-sm text-zinc-400">Wandering alone under thunderous skies, carrying the weight of every mistake.</div>
+            </div>
+            
+            <!-- Journey Step 2 -->
+            <div class="journey-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 group">
+                <div class="relative h-80">
+                    <img src="image2.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="The Chapel">
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <div class="text-amber-400 text-xs tracking-widest">02 • THE CALL</div>
+                        <div class="text-white text-xl font-semibold">The Chapel Choir</div>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 pt-3 text-sm text-zinc-400">Voices rising like a beacon through the storm. The first time he felt seen.</div>
+            </div>
+            
+            <!-- Journey Step 3 -->
+            <div class="journey-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 group">
+                <div class="relative h-80">
+                    <img src="image3.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="The Prayer">
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <div class="text-amber-400 text-xs tracking-widest">03 • THE COLLAPSE</div>
+                        <div class="text-white text-xl font-semibold">Kneeling in surrender</div>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 pt-3 text-sm text-zinc-400">Broken and soaked, he finally stopped running and fell to his knees.</div>
+            </div>
+            
+            <!-- Journey Step 4 -->
+            <div class="journey-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 group">
+                <div class="relative h-80">
+                    <img src="image4.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="The River">
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <div class="text-amber-400 text-xs tracking-widest">04 • THE RIVER</div>
+                        <div class="text-white text-xl font-semibold">Wash me in the river</div>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 pt-3 text-sm text-zinc-400">Sunrise baptism. The water that carried every sin away.</div>
+            </div>
+            
+            <!-- Journey Step 5 -->
+            <div class="journey-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 group">
+                <div class="relative h-80">
+                    <img src="image1.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="The Road Home">
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <div class="text-amber-400 text-xs tracking-widest">05 • THE RETURN</div>
+                        <div class="text-white text-xl font-semibold">Home in His Hands</div>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 pt-3 text-sm text-zinc-400">The long road finally led him back to grace. The running stopped.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE / TAGLINE SECTION -->
+    <section class="bg-zinc-900 py-16 border-y border-zinc-800">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="max-w-lg mx-auto">
+                <i class="fa-solid fa-quote-left text-4xl text-amber-400/40 mb-6"></i>
+                <p class="text-3xl leading-tight tracking-tight heading-serif">"For the broken. For the wandering. For the back-row saints. For anyone still trying to find their way home."</p>
+                <div class="mt-8 text-sm text-amber-400 tracking-[1.5px]">— MERCY ROAD REVIVAL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-20">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="uppercase text-xs tracking-[3px] text-amber-400 mb-3">STAY IN THE LIGHT</div>
+            <h2 class="text-5xl heading-serif tracking-tight mb-4">Connect with Mercy Road Revival</h2>
+            <p class="text-zinc-400 mb-10">Questions, testimonies, or just want to say hello? We'd love to hear from you.</p>
+            
+            <div class="bg-zinc-900 border border-zinc-700 rounded-3xl p-10 mb-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400/10 to-yellow-600/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-envelope text-4xl text-amber-400"></i>
+                    </div>
+                    
+                    <div class="text-lg font-medium mb-1">Stephen Burnip</div>
+                    <a href="mailto:stephenburnip@yahoo.co.uk" class="text-amber-400 hover:underline text-xl">stephenburnip@yahoo.co.uk</a>
+                    
+                    <div class="my-8 w-px h-8 bg-zinc-700"></div>
+                    
+                    <div class="flex gap-x-6">
+                        <a href="#" class="w-12 h-12 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram text-3xl"></i></a>
+                        <a href="#" class="w-12 h-12 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"><i class="fa-brands fa-youtube text-3xl"></i></a>
+                        <a href="#" class="w-12 h-12 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"><i class="fa-brands fa-facebook text-3xl"></i></a>
+                        <a href="#" class="w-12 h-12 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"><i class="fa-brands fa-spotify text-3xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-xs text-zinc-500 max-w-xs mx-auto">© 2026 Mercy Road Revival. All rights reserved. Grace Like Thunder is available on all major platforms.</p>
+        </div>
+    </section>
+
+    <!-- MUSIC PLAYER MODAL -->
+    <div id="player-modal" onclick="if (event.target.id === 'player-modal') closePlayer()" class="hidden fixed inset-0 bg-black/90 backdrop-blur-xl z-[100] flex items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" class="modal bg-zinc-900 border border-zinc-700 w-full max-w-md rounded-3xl overflow-hidden shadow-2xl">
+            
+            <!-- Modal Header -->
+            <div class="px-6 pt-6 pb-4 flex justify-between items-center border-b border-zinc-800">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 rounded-xl overflow-hidden border border-zinc-700">
+                        <img src="image1.png" class="w-full h-full object-cover" alt="Album art">
+                    </div>
+                    <div>
+                        <div class="text-xs text-amber-400 tracking-widest">NOW PLAYING</div>
+                        <div id="modal-album" class="font-semibold text-sm">Grace Like Thunder</div>
+                    </div>
+                </div>
+                
+                <button onclick="closePlayer()" class="text-zinc-400 hover:text-white p-2 -mr-2">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Track Info -->
+            <div class="px-8 pt-8 pb-2 text-center">
+                <div id="modal-track-title" class="text-3xl font-semibold tracking-tight mb-1"></div>
+                <div class="text-sm text-amber-400">Mercy Road Revival</div>
+            </div>
+            
+            <!-- Visualizer -->
+            <div class="px-8 py-5 flex items-end justify-center gap-x-[5px] h-[92px]">
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 35%;"></div>
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 65%;"></div>
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 95%;"></div>
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 55%;"></div>
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 80%;"></div>
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 45%;"></div>
+                <div class="equalizer-bar w-[5px] bg-gradient-to-t from-amber-400 to-yellow-300 rounded-full" style="height: 70%;"></div>
+            </div>
+            
+            <!-- Progress -->
+            <div class="px-8">
+                <div class="flex items-center gap-x-3 text-xs text-zinc-500 font-mono tabular-nums">
+                    <div id="current-time">0:00</div>
+                    <div class="flex-1 h-px bg-zinc-700 relative">
+                        <div id="progress-bar" class="absolute top-0 left-0 h-px bg-amber-400 transition-all" style="width: 0%"></div>
+                    </div>
+                    <div id="total-time">0:00</div>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="px-8 py-8 flex items-center justify-between">
+                <button onclick="prevTrack()" class="text-zinc-400 hover:text-white transition-colors px-3 py-2"><i class="fa-solid fa-step-backward fa-lg"></i></button>
+                
+                <button id="play-btn" onclick="togglePlay()" 
+                        class="w-16 h-16 flex items-center justify-center bg-white hover:bg-amber-400 active:scale-95 transition-all text-zinc-950 rounded-full shadow-inner">
+                    <i id="play-icon" class="fa-solid fa-play fa-2x ml-0.5"></i>
+                </button>
+                
+                <button onclick="nextTrack()" class="text-zinc-400 hover:text-white transition-colors px-3 py-2"><i class="fa-solid fa-step-forward fa-lg"></i></button>
+            </div>
+            
+            <div class="px-8 pb-7 flex justify-center gap-x-5 text-xs text-zinc-500">
+                <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-volume-up"></i> <span>100</span></div>
+                <div onclick="shufflePlaylist()" class="cursor-pointer hover:text-amber-400"><i class="fa-solid fa-random"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#d4af37');
+            
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'cinematic': ['Playfair Display', 'Georgia', 'serif']
+                        }
+                    }
+                }
+            };
+        }
+        
+        // Mobile menu
+        function setupMobileMenu() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileBtn.addEventListener('click', () => {
+                const menu = document.createElement('div');
+                menu.className = 'fixed inset-0 bg-zinc-950 z-[200] flex flex-col p-8 md:hidden';
+                menu.innerHTML = `
+                    <div class="flex justify-between items-center mb-10">
+                        <div class="flex items-center gap-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center">
+                                <i class="fa-solid fa-road text-zinc-950"></i>
+                            </div>
+                            <span class="font-bold text-2xl tracking-tight heading-serif">MERCY ROAD REVIVAL</span>
+                        </div>
+                        <button class="text-3xl text-zinc-400">&times;</button>
+                    </div>
+                    
+                    <div class="flex flex-col text-2xl gap-y-6 font-light">
+                        <a href="#about" class="py-2">The Story</a>
+                        <a href="#album" class="py-2">The Album</a>
+                        <a href="#journey" class="py-2">The Journey</a>
+                        <a href="#contact" class="py-2">Connect</a>
+                    </div>
+                    
+                    <div class="mt-auto pt-8 border-t border-zinc-800">
+                        <button onclick="document.getElementById('album').scrollIntoView({behavior:'smooth'}); this.closest('.fixed').remove()" 
+                                class="w-full py-4 bg-white text-zinc-950 rounded-2xl font-bold flex items-center justify-center gap-x-2">
+                            <i class="fa-solid fa-play"></i> 
+                            <span>STREAM THE ALBUM</span>
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(menu);
+                
+                menu.querySelector('button').addEventListener('click', () => menu.remove());
+                
+                // Close on link click
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => menu.remove());
+                });
+            });
+        }
+        
+        // Music Player Logic
+        let currentTrack = null;
+        let isPlaying = false;
+        let progressInterval = null;
+        let currentTrackIndex = 0;
+        
+        const tracks = [
+            { id: 1, title: "I Heard Him In The Thunder", duration: "6:12", time: 372 },
+            { id: 2, title: "Grace Like Thunder", duration: "5:47", time: 347 },
+            { id: 3, title: "Mama Prayed Anyway", duration: "4:59", time: 299 },
+            { id: 4, title: "Devil At The Door", duration: "5:21", time: 321 },
+            { id: 5, title: "Wash Me In The River", duration: "6:03", time: 363 },
+            { id: 6, title: "Home In His Hands", duration: "7:14", time: 434 }
+        ];
+        
+        function playTrack(trackNum, title) {
+            const modal = document.getElementById('player-modal');
+            const titleEl = document.getElementById('modal-track-title');
+            
+            currentTrack = trackNum;
+            currentTrackIndex = tracks.findIndex(t => t.id === trackNum);
+            
+            titleEl.textContent = title;
+            document.getElementById('modal-album').textContent = "Grace Like Thunder";
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Reset player state
+            resetPlayer();
+            
+            // Auto-play after short delay
+            setTimeout(() => {
+                togglePlay();
+            }, 650);
+        }
+        
+        function playAlbum() {
+            // Start with first track
+            playTrack(1, "I Heard Him In The Thunder");
+        }
+        
+        function resetPlayer() {
+            isPlaying = false;
+            clearInterval(progressInterval);
+            
+            const progressBar = document.getElementById('progress-bar');
+            const currentTimeEl = document.getElementById('current-time');
+            const playIcon = document.getElementById('play-icon');
+            
+            progressBar.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+            
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            
+            // Stop equalizer animation
+            document.querySelectorAll('.equalizer-bar').forEach(bar => {
+                bar.style.animationPlayState = 'paused';
+            });
+        }
+        
+        function togglePlay() {
+            const playIcon = document.getElementById('play-icon');
+            const progressBar = document.getElementById('progress-bar');
+            const currentTimeEl = document.getElementById('current-time');
+            
+            const trackData = tracks.find(t => t.id === currentTrack);
+            if (!trackData) return;
+            
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+                
+                // Start equalizer
+                document.querySelectorAll('.equalizer-bar').forEach(bar => {
+                    bar.style.animationPlayState = 'running';
+                });
+                
+                // Fake progress
+                let progress = parseFloat(progressBar.style.width) || 0;
+                const totalSeconds = trackData.time;
+                const increment = (100 / totalSeconds) * 0.8; // speed factor
+                
+                progressInterval = setInterval(() => {
+                    progress += increment;
+                    
+                    if (progress >= 100) {
+                        clearInterval(progressInterval);
+                        progress = 100;
+                        nextTrack();
+                        return;
+                    }
+                    
+                    progressBar.style.width = progress + '%';
+                    
+                    // Update time
+                    const elapsed = Math.floor((progress / 100) * totalSeconds);
+                    const min = Math.floor(elapsed / 60);
+                    const sec = elapsed % 60;
+                    currentTimeEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+                }, 800);
+                
+            } else {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                
+                document.querySelectorAll('.equalizer-bar').forEach(bar => {
+                    bar.style.animationPlayState = 'paused';
+                });
+                
+                clearInterval(progressInterval);
+            }
+        }
+        
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            const nextTrackData = tracks[currentTrackIndex];
+            closePlayer();
+            
+            setTimeout(() => {
+                playTrack(nextTrackData.id, nextTrackData.title);
+            }, 300);
+        }
+        
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+            const prevTrackData = tracks[currentTrackIndex];
+            closePlayer();
+            
+            setTimeout(() => {
+                playTrack(prevTrackData.id, prevTrackData.title);
+            }, 300);
+        }
+        
+        function shufflePlaylist() {
+            const randomIndex = Math.floor(Math.random() * tracks.length);
+            const randomTrack = tracks[randomIndex];
+            closePlayer();
+            
+            setTimeout(() => {
+                playTrack(randomTrack.id, randomTrack.title);
+            }, 300);
+        }
+        
+        function closePlayer() {
+            const modal = document.getElementById('player-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            
+            clearInterval(progressInterval);
+            isPlaying = false;
+            
+            // Reset visualizer
+            document.querySelectorAll('.equalizer-bar').forEach(bar => {
+                bar.style.animationPlayState = 'paused';
+            });
+        }
+        
+        function watchTrailer() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/95 z-[200] flex items-center justify-center p-6';
+            modal.innerHTML = `
+                <div class="max-w-4xl w-full">
+                    <div class="flex justify-between items-center mb-4 px-2">
+                        <div>
+                            <div class="uppercase tracking-[2px] text-xs text-amber-400">OFFICIAL TRAILER</div>
+                            <div class="text-white text-3xl font-semibold">Grace Like Thunder</div>
+                        </div>
+                        <button class="text-white text-4xl leading-none hover:text-amber-400 transition-colors">&times;</button>
+                    </div>
+                    
+                    <div class="aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-700 relative flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="mx-auto w-20 h-20 rounded-full border-4 border-amber-400 flex items-center justify-center mb-5">
+                                <i class="fa-solid fa-play text-amber-400 text-4xl ml-1"></i>
+                            </div>
+                            <div class="text-xl font-semibold">TRAILER COMING SOON</div>
+                            <div class="text-sm text-zinc-400 mt-1">Filmed on location across the American South</div>
+                        </div>
+                        
+                        <!-- Fake cinematic elements -->
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(transparent, rgba(0,0,0,0.4));"></div>
+                        <div class="absolute top-6 right-6 text-xs px-3 py-1 bg-black/60 rounded font-mono">4K • CINEMATIC</div>
+                    </div>
+                    
+                    <div class="text-center text-xs text-zinc-500 mt-4">Directed by the Mercy Road Revival creative team • Premiering June 2026</div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            modal.querySelector('button').addEventListener('click', () => modal.remove());
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
+        }
+        
+        function showMerchModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/90 z-[200] flex items-center justify-center p-6';
+            modal.innerHTML = `
+                <div class="max-w-md w-full bg-zinc-900 rounded-3xl border border-zinc-700 overflow-hidden">
+                    <div class="px-8 pt-8 pb-6">
+                        <div class="flex justify-between">
+                            <div>
+                                <span class="px-3 py-1 text-xs rounded-full bg-emerald-900 text-emerald-400">LIMITED</span>
+                                <div class="mt-3 text-3xl font-semibold">Grace Like Thunder</div>
+                                <div class="text-amber-400">Deluxe Vinyl + CD Bundle</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-4xl font-bold">$48</div>
+                                <div class="text-xs line-through text-zinc-500">$65</div>
+                            </div>
+                        </div>
+                        
+                        <div class="my-7 text-sm text-zinc-300 leading-relaxed">
+                            180g heavyweight vinyl pressed in Nashville. Includes 12-page lyric book with never-before-seen photography from the recording sessions and handwritten notes from Stephen Burnip.
+                        </div>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between py-2 border-b border-zinc-700">
+                                <span>180g Black Vinyl</span>
+                                <span class="text-emerald-400">Included</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-zinc-700">
+                                <span>Signed Lyric Booklet</span>
+                                <span class="text-emerald-400">Included</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-zinc-700">
+                                <span>Digital Download (FLAC + MP3)</span>
+                                <span class="text-emerald-400">Included</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-8 py-5 border-t border-zinc-700 flex gap-x-3">
+                        <button onclick="this.closest('.fixed').remove(); alert('Thank you! Your order has been placed. (Demo)')" 
+                                class="flex-1 py-3.5 bg-white text-zinc-950 font-bold rounded-2xl hover:bg-amber-400 transition-colors">PRE-ORDER NOW</button>
+                        <button onclick="this.closest('.fixed').remove()" 
+                                class="flex-1 py-3.5 border border-zinc-600 hover:bg-zinc-800 rounded-2xl font-medium">MAYBE LATER</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        // Keyboard support
+        function setupKeyboardControls() {
+            document.addEventListener('keydown', function(e) {
+                const modal = document.getElementById('player-modal');
+                if (modal.classList.contains('hidden')) return;
+                
+                if (e.key === ' ' || e.key === 'k') {
+                    e.preventDefault();
+                    togglePlay();
+                }
+                
+                if (e.key === 'ArrowRight') {
+                    nextTrack();
+                }
+                
+                if (e.key === 'ArrowLeft') {
+                    prevTrack();
+                }
+                
+                if (e.key === 'Escape') {
+                    closePlayer();
+                }
+            });
+            
+            // Easter egg: press 'g' for grace
+            let graceCount = 0;
+            document.addEventListener('keypress', function(e) {
+                if (e.key.toLowerCase() === 'g') {
+                    graceCount++;
+                    if (graceCount >= 5) {
+                        graceCount = 0;
+                        const flash = document.createElement('div');
+                        flash.className = 'fixed inset-0 bg-amber-400/20 pointer-events-none z-[300]';
+                        document.body.appendChild(flash);
+                        
+                        setTimeout(() => {
+                            flash.style.transition = 'opacity 800ms';
+                            flash.style.opacity = '0';
+                            
+                            setTimeout(() => flash.remove(), 900);
+                        }, 80);
+                    }
+                }
+            });
+        }
+        
+        // Smooth scroll for nav links
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            setupMobileMenu();
+            setupSmoothScroll();
+            setupKeyboardControls();
+            
+            // Add subtle rain effect to hero (optional cinematic touch)
+            const hero = document.querySelector('header');
+            if (hero) {
+                hero.addEventListener('mousemove', function(e) {
+                    const rect = hero.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    hero.style.setProperty('--mouse-x', `${x}%`);
+                    hero.style.setProperty('--mouse-y', `${y}%`);
+                });
+            }
+            
+            // Release day celebration
+            console.log('%c[MERCY ROAD REVIVAL] Grace Like Thunder is officially out today! 🎉', 'color:#d4af37');
+            
+            // Bonus: Random light ray intensity
+            setInterval(() => {
+                const rays = document.querySelectorAll('.light-ray');
+                rays.forEach(ray => {
+                    if (Math.random() > 0.7) {
+                        ray.style.opacity = Math.random() * 0.7 + 0.3;
+                    }
+                });
+            }, 4500);
+            
+            // Accessibility note
+            console.log('%c[Website] Fully keyboard accessible. Press SPACE to play/pause in player. Arrow keys to skip tracks.', 'color:#64748b');
+        }
+        
+        // Boot the experience
+        window.onload = init;
+    </script>
+</body>
+</html>
